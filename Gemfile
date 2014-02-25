@@ -5,6 +5,8 @@ gem 'pg'
 gem 'thin'
 gem 'turbolinks'
 
+gem 'devise'
+
 group :doc do
   gem 'sdoc', require: false
 end
