@@ -12,3 +12,8 @@ Feature: Home page navigation
     Given I am a new user who is logged in
     When I go to "/home"
     Then I should be on the home page
+
+  Scenario: Front Page Access With Login
+    Given I am a new user who is logged in
+    When I go to "/"
+    Then I should be on the home page

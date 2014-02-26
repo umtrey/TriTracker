@@ -17,6 +17,10 @@ When /^I go to \"\/home\"$/ do
   visit '/home'
 end
 
+When /^I go to \"\/\"$/ do
+  visit '/'
+end
+
 Then /^I should be on the login page$/ do
   assert page.current_path == new_user_session_path
 end
