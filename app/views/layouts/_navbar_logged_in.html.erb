@@ -1,0 +1,7 @@
+<ul class="nav navbar-nav">
+  <li><%= link_to "My Workouts", workouts_path %></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+  <li><a>Logged in as <b><%= current_user.email %></b></a></li>
+  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+</ul>

@@ -10,14 +10,13 @@
       <a class="navbar-brand" href="#">Trey's Tri Tracker</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li><a>Logged in as <b><%= current_user.email %></b></a></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/navbar_logged_in' %>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign in", new_user_session_path %></li>
-        <% end %>
-      </ul>
+        </ul>
+      <% end %>
     </div>
   </div>
 </nav>
