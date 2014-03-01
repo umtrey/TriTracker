@@ -25,3 +25,8 @@ Feature: User workout viewing
     Then I should be on the login page
     And I should see "You need to sign in"
 
+  Scenario: Going back to home from workouts page
+    Given I am a new user who is logged in
+    When I go to "/workouts"
+    And I click on "Home"
+    Then I should be on the home page
