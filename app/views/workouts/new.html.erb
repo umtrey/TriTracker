@@ -1,0 +1,35 @@
+<h1>New Workout</h1>
+<%= form_for @workout do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h2>
+
+      <ul>
+      <% @workout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :activity %>
+    <%= f.collection_select :activity_id, Activity.all, :id, :name %>
+
+    <%= f.label :workout_on %>
+    <%= f.text_field :workout_on %>
+
+    <%= f.label :minutes_elapsed %>
+    <%= f.text_field :minutes_elapsed %>
+
+    <%= f.label :units_completed %>
+    <%= f.text_field :units_completed %>
+
+    <%= f.label :unit_of_measure %>
+    <%= f.collection_select :unit_of_measure, [:mi, :km], :to_s, :to_s %>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit "Save Workout", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", workouts_path, :class => "btn" %>
+  </div>
+<% end %>

@@ -6,6 +6,7 @@ Given /^I am a new user who is logged in$/ do
   email = "test@test.com"
   password = "testpass"
   @user = User.create(email: email, password: password, password_confirmation: password)
+  2.times { FactoryGirl.create(:activity) } unless Activity.any?
 
   visit '/users/sign_in'
   fill_in "user_email", with: email
