@@ -1,2 +1,6 @@
-<h1>Workouts#index</h1>
-<p>Find me in app/views/workouts/index.html.erb</p>
+<h1>My Workouts</h1>
+<ul>
+  <% @workouts.each do |workout| %>
+    <li class="workout-listing"><%= workout.inspect %></li>
+  <% end %>
+</ul>

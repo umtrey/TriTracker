@@ -1,3 +1,7 @@
+Given /^I have (\d+) workout(s?)$/ do |count, plural|
+  count.to_i.times { FactoryGirl.create(:workout, user: @user) }
+end
+
 When /^I click on "(.*?)"$/ do |link|
   click_link link
 end
@@ -20,4 +24,8 @@ end
 
 Then /^I should see "(.*?)"$/ do |content|
   page.should have_content content
+end
+
+Then /^there should be (\d+) workout(s?) listed$/ do |number, plural|
+  page.should have_css(".workout-listing", :count => number.to_i)
 end

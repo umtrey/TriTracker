@@ -5,7 +5,7 @@ end
 Given /^I am a new user who is logged in$/ do
   email = "test@test.com"
   password = "testpass"
-  User.new(email: email, password: password, password_confirmation: password).save!
+  @user = User.create(email: email, password: password, password_confirmation: password)
 
   visit '/users/sign_in'
   fill_in "user_email", with: email

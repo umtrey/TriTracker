@@ -30,3 +30,9 @@ Feature: User workout viewing
     When I go to "/workouts"
     And I click on "Home"
     Then I should be on the home page
+
+  Scenario: Viewing all workouts
+    Given I am a new user who is logged in
+    And I have 5 workouts
+    When I go to "/workouts"
+    Then there should be 5 workouts listed
